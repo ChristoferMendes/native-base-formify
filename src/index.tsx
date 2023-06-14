@@ -65,10 +65,10 @@ const Input = (props: InputProps) => {
 };
 
 interface TextAreaProps extends ITextAreaProps {
-  _labelProps?: IFormControlLabelProps;
   _erroMessageProps?: IFormControlErrorMessageProps;
+  _labelProps?: IFormControlLabelProps;
+  label?: string;
   name: string;
-  labelText: string;
   onChange?: (...event: any[]) => void;
   errors?: any;
 }
@@ -76,7 +76,7 @@ interface TextAreaProps extends ITextAreaProps {
 const TextArea = (props: TextAreaProps) => {
   return (
     <>
-      <FormControl.Label {...props._labelProps}>{props.labelText ?? props.name}</FormControl.Label>
+      <FormControl.Label {...props._labelProps}>{props.label ?? props.name}</FormControl.Label>
       <FormControl.ErrorMessage {...props._erroMessageProps}>
         {props.errors[props.name]?.message}
       </FormControl.ErrorMessage>
